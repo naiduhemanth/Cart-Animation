@@ -1,0 +1,204 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="ROBOTS" content="INDEX, FOLLOW"><meta name="keywords" content=""><meta name="description" content="">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        *{
+    font-family: "Times New Roman";
+    margin:0;
+    padding:0;
+    max-width=100vw;
+    max-height=100vh;
+}
+body,html{
+    position relative;
+    background-color: #b5dff4;  
+    width:100%;  
+}
+
+.container{
+	position:relative;
+	width:100vw;
+	height:100vh;
+
+}
+#cart{
+    margin:0;
+    position:absolute;
+    width:130%;
+    height:auto;
+    left:55%;
+    margin-left:-65%;
+    top:25%;
+}
+
+#Link{
+    position:absolute;
+    text-align: center;
+    top: 35%;
+    width:90%;
+    height:auto;
+    left:45%;
+    margin-left:-43%;
+    color:black;
+    font-size:15vw;
+    display: none;
+}
+button{
+	background-color: #42b0d5;
+	color:white;
+	border-radius:20px;
+		 }
+
+#msg{
+	display:none;
+	position:absolute;
+	border: solid;
+	border-radius:20px;
+	margin:70% 20%; 
+	padding:0;
+	background-color:#b5dff4; 
+	text-align:center;
+	padding:15px;
+}
+
+    </style>
+</head>
+<body id="body">
+    <div class="container" id = "container">
+        <img id="cart" class="cart" src="http://image.maersk.com/lib/fe5d15707c62017d701c/m/19/0ccf1180-5404-4623-be62-a41c09da7fd7.png" alt="Cart">
+
+	<div id="msg">
+		<h4>To display animation , this page requires permision to orienation sensors </h4> <br/>
+		<button id="btn"> </button>
+	</div>
+	
+        
+	<div id = "Link">
+		<p>Supply chain the way you want it</p>
+		<p id ="Link2">#reimagineretail</p>
+	</div>
+    </div>
+    <script>
+	$( document ).ready(function() {
+	let cart_img = document.querySelector('#cart');
+	let container = document.querySelector('#container');
+        let maxX = container.clientWidth  - cart_img.clientWidth;
+        let maxY = container.clientHeight - cart_img.clientHeight;
+
+	setTimeout(function(){
+	        document.getElementById('cart').style.display = 'none';
+		document.getElementById('Link').style.display = 'block';
+	 },17000);
+	setTimeout(function(){
+	        document.getElementById('msg').style.display = 'none';
+		
+	 },16000);
+
+	
+	
+	cart_img.style.setProperty('-webkit-transform', "rotate3d(0,0,1," +(20)+ "deg)");
+	cart_img.style.setProperty('-moz-transform', "rotate3d(0,0,1," +(20)+ "deg)");
+	cart_img.style.setProperty('-o-transform', "rotate3d(0,0,1," +(20)+ "deg)");
+	cart_img.style.setProperty('-ms-transform', "rotate3d(0,0,1," +(20)+ "deg)");
+	setTimeout(function(){
+	   cart_img.style.setProperty('-webkit-transform', "rotate3d(0,0,1," +(-20)+ "deg)");
+	   cart_img.style.setProperty('-moz-transform', "rotate3d(0,0,1," +(-20)+ "deg)");
+	   cart_img.style.setProperty('-os-transform', "rotate3d(0,0,1," +(-20)+ "deg)");
+	   cart_img.style.setProperty('-ms-transform', "rotate3d(0,0,1," +(-20)+ "deg)");
+	 },1000);
+	   setTimeout(function(){
+	   cart_img.style.setProperty('-webkit-transform', "rotate3d(0,0,1," +(0)+ "deg)");
+	   cart_img.style.setProperty('-moz-transform', "rotate3d(0,0,1," +(0)+ "deg)");
+	   cart_img.style.setProperty('-o-transform', "rotate3d(0,0,1," +(0)+ "deg)");
+	   cart_img.style.setProperty('-ms-transform', "rotate3d(0,0,1," +(0)+ "deg)");
+	   
+	 },2000);
+	 
+	cart_img.style.setProperty('-webkit-transition',"transform 0.65s linear");
+	cart_img.style.setProperty('-moz-transition',"transform 0.65s linear");
+    	cart_img.style.setProperty('-o-transition',"transform 0.65s linear");
+	cart_img.style.setProperty('-ms-transition',"transform 0.65s linear");
+
+
+        function handleOrientation(event) {
+	    // function that handleds the orientation deg that the event involkes            
+            var y = event.gamma; // In degree in the range [-90,90]
+	    var x = event.alpha;
+	    cart_img.style.setProperty('-webkit-transition',"transform 0.15s linear");
+	    cart_img.style.setProperty('-moz-transition',"transform 0.15s linear");
+	    cart_img.style.setProperty('-o-transition',"transform 0.15s linear");
+	    cart_img.style.setProperty('-ms-transition',"transform 0.15s linear");
+
+
+
+	    if (x==-180){
+	    cart_img.style.setProperty('-webkit-transform', "rotate3d(0,0,1," +((180-y))+ "deg)");
+	    cart_img.style.setProperty('-moz-transform', "rotate3d(0,0,1," +((180-y))+ "deg)");
+	    cart_img.style.setProperty('-o-transform', "rotate3d(0,0,1," +((180-y))+ "deg)");
+	    cart_img.style.setProperty('-ms-transform', "rotate3d(0,0,1," +((180-y))+ "deg)");
+		}
+	
+	else{
+	    
+	    cart_img.style.setProperty('-webkit-transform', "rotate3d(0,0,1," +y+ "deg)");
+	    cart_img.style.setProperty('-moz-transform', "rotate3d(0,0,1," +y+ "deg)");
+	    cart_img.style.setProperty('-o-transform', "rotate3d(0,0,1," +y+ "deg)");
+	    cart_img.style.setProperty('-ms-transform', "rotate3d(0,0,1," +y+ "deg)");
+        	}
+	}
+	
+	//function to request permision to read and use the orientation value of the device
+	var requestOrientationPermission = function(){
+		msg.style.setProperty("display","none");
+		DeviceOrientationEvent.requestPermission()
+		.then(response => {
+			msg.style.setProperty("display","none");
+  			if (response == 'granted') {
+				window.addEventListener('deviceorientation', handleOrientation);
+			}
+		})
+		.catch(console.error);
+		msg.style.setProperty("display","none");
+	}	
+
+
+	if (typeof DeviceOrientationEvent.requestPermission === 'function') {
+ 	 // iOS 13+
+		//if detected as IOS a button is generated to ask for access
+		let button = document.getElementById("btn");
+		button.innerHTML = "Give Access to read orientation";
+		let msg = document.getElementById("msg");
+		msg.appendChild(button);
+		msg.style.setProperty("display","block");
+		button.style.setProperty("display","block");
+		button.style.setProperty("position","relative");
+		button.style.setProperty("width","200px");
+		button.style.setProperty("height","50px");
+		button.style.setProperty("margin","10px auto");
+		button.addEventListener ("click", requestOrientationPermission);//on button click , requests permission 
+			
+	} else {
+  	// non iOS 13+
+		window.addEventListener('deviceorientation', handleOrientation);//for non safari / IOS devices and browsers
+	}
+});
+    </script>
+
+<script>(function(a,m,i,g,o,s){o=a.createElement(g);s=a.getElementsByTagName(i)[0];o.src=m.origin+m.pathname+"/_t?eventType=CLOUDPAGESVISIT";o.width=0;o.height=0;o.style.display="none";s.appendChild(o);})(document,window.location,"body","img");</script>
+
+	<script src="https:&#x2F;&#x2F;10965058.collect.igodigital.com&#x2F;collect.js"></script>
+	<script>
+		if (_etmc && typeof _etmc.push === 'function') {
+			_etmc.push(['setOrgId', '10965058']);
+			_etmc.push(['trackPageView']);
+		}
+	</script>
+
+</body>
+</html>
